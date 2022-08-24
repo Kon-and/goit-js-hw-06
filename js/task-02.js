@@ -2,12 +2,10 @@
 
 const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
 
-let ulList = document.getElementById('ingredients');
-const foodIngredients = ingredients.forEach(ingredient => {
-  let items = document.createElement('li');
-  items.innerHTML = ingredient;
-  ulList.append(items);
-  items.classList.add('item');
-});
+const ulList = document.querySelector('#ingredients');
 
-console.log(foodIngredients);
+const ingredientsList = ingredients
+  .map(ingredient => `<li class="item">${ingredient}</li>`)
+  .join('');
+
+ulList.insertAdjacentHTML('beforeend', ingredientsList);
